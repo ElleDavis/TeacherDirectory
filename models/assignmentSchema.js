@@ -9,15 +9,15 @@ const assignmentSchema=mongoose.Schema({
         type:Date, 
         required:true},
 
-    teacher_name: {
+    assignment_name: {
         type:String, 
         required:true},
 
-    teacher_subject: {
+    assignment_subject: {
         type:String, 
         required:true},
 
-    teacher_email: {
+    assignment_due: {
         type:String, 
         required:true},
 

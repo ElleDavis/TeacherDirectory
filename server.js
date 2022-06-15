@@ -1,20 +1,27 @@
 console.log("Hey Ms.Parker")
-
+//Imports
 const express= require ("express")
+const app = express()
+const PORT= 3000
+
 const teacherRouter= require("./routes/teacherRouter")
 const assignmentRouter= require("./routes/assignmentRouter")
 const authRouter= require("./routes/authRouter")
 const Mongoconfig=require("./config/MongoConfig")
-require("dotenv").config() // init dotenv
-const app = express()
-const PORT= 3000
+const morgan =require("morgan")
+const helmet =require("helmet")
+require("dotenv").config() 
 
 
-//* Routers
+//Middleware
 app.use(express.json())
 app.use('/teacher', teacherRouter)
 app.use("/assignment", assignmentRouter)
 app.use("/auth", authRouter)
+//monitoring
+app.use(morgan("dev"))
+//hide headers
+app.use(helmet())
 
 
 //* Routes
