@@ -6,8 +6,9 @@ const assignmentSchema=mongoose.Schema({
         required:true},
 
     created_at: {
-        type:Date, 
-        required:true},
+        type: Date,
+        default: Date.now()
+        },
 
     assignment_name: {
         type:String, 

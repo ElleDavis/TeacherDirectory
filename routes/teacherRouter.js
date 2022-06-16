@@ -10,6 +10,17 @@ const router =express.Router()
 // ===========================Router
 //* Create or Register a new User
 
+// router.get("/", (req,res)=>{
+//     res.status(200).json("we're here")
+// })
+router.get('/', async (req, res) => {
+    try {
+        const teacher = await teacherModel.find()
+        res.status(200).json(teacher)
+    } catch (error) {
+        console.log(error)
+    }
+ })
 router.post('/', [
     check('username', "Username is required from Middleware!").notEmpty(),
     check("email", "Please use a valid email! from middleware").isEmail(),
