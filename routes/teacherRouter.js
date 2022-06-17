@@ -13,6 +13,7 @@ const router =express.Router()
 // router.get("/", (req,res)=>{
 //     res.status(200).json("we're here")
 // })
+//GET Teacher
 router.get('/', async (req, res) => {
     try {
         const teacher = await teacherModel.find()
@@ -21,6 +22,18 @@ router.get('/', async (req, res) => {
         console.log(error)
     }
  })
+//
+ //* GET Teacher by id======================
+ router.get('/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        const teacher = await assignmentModel.findById(id)
+        res.status(200).json(teacher)
+    } catch (error) {
+        console.log(error)
+    }
+ })
+//POST Teacher
 router.post('/', [
     check('username', "Username is required from Middleware!").notEmpty(),
     check("email", "Please use a valid email! from middleware").isEmail(),
@@ -43,7 +56,7 @@ router.post('/', [
             return res.json({msg: "teacher already exist!"})
         }
 
-        //* ==== Create New User
+        //* ==== Create New Teacher
         // 1 Create the salt
         const SALT = await bcrypt.genSalt(12)
         // 2 use the salt to create a hash with the user's password
@@ -70,6 +83,30 @@ router.post('/', [
     } catch (error) {
         console.log(error)
         res.status(400).json('Bad request!!!!!')
+    }
+})
+//================================
+//* UPDATE teacher BY ID
+router.put('/:id', async (req, res) => {
+    const id = req.params.id
+    const newTeacherData = req.body
+     try {
+         //* find the assignment by the id
+         const teacher = await assignmentModel.findByIdAndUpdate(id, newTeacherData, {new: true})
+         res.status(200).json(teacher)
+     } catch (error) {
+         console.log(error)
+     }
+})
+//! DELETE A teacher
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id
+
+    try {
+        const teacher = await assignmentModel.findByIdAndDelete(id)
+        res.status(200).json({msg: 'Teacher was deleted!'})
+    } catch (error) {
+        console.log(error);
     }
 })
 

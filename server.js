@@ -2,7 +2,7 @@ console.log("Hey Ms.Parker")
 //Imports
 const express= require ("express")
 const app = express()
-const PORT= 3000
+const PORT= process.env.PORT || 3000
 
 const teacherRouter= require("./routes/teacherRouter")
 const assignmentRouter= require("./routes/assignmentRouter")
