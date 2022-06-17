@@ -26,7 +26,7 @@ app.use(helmet())
 
 //* Routes
 app.get("/", (req,res)=>{
-    res.status(200).json({msg:"welcome"})
+    res.status(200).json({msg:"Welcome to my API"})
 })
 
 app.listen (PORT, () =>{

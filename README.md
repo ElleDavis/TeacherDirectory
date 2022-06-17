@@ -1,16 +1,22 @@
-#TeacherDirectory
+# TeacherDirectory
+This Directory allows teachers to Create an account, Loginand manage assignments. 
 
-##Names of all ENV Variables
+### Tech Stack
+Server:
+Database:
+Tools:
+
+## Names of all ENV Variables
     - MONGODB_URI
     - JWT_SECRET
     - SALT
 
-##Instructions on Installing & Running Locally
+## Instructions on Installing & Running Locally
 git clone teacherDiectory_Api
 cd into yourr cloned teacherDiectory_Api
 
 install dependencies;
-- npi init -y
+- npm init -y
 - npm i:
     "bcrypt":
     "dotenv":
@@ -20,45 +26,44 @@ install dependencies;
     "jsonwebtoken": 
     "mongoose":
     "morgan": 
-    
-##Endpoints, Parameters, Schema
 
-1. Teacher Routes
+## Endpoints, Parameters, Schema
+
+1. Server: app.get("/") rreturns "Welcome to my API"
+2. Teacher Routes:
     - Create teachers
     - Read teachers
     - Update teachers
     - Delete teachers
 
-###Teacher Schema
+3. Assignments Routes:
+    - Create Assignments
+    - Read Assignments
+    - Update Assignments
+    - Delete Assignments
+
+4. Authenticate Teacher
+    - POST: Login teacher
+
+### Teacher Schema
          ```
     username {type:String, required:true}, 
     email: {type:String,required:true},
     birthday: {type:String, required:true},
     age: {type:Number},
     password: {type:String,required:true}
-        ```
+        ```,
      
-
-2. Assignments Routes
-    - Create Assignments
-    - Read Assignments
-    - Update Assignments
-    - Delete Assignments
-
-        ###Assignment Schema
+### Assignment Schema:
          ```
-        {
     created_by: {type:String, required:true},
     created_at: {type: Date,default: Date.now()},
     assignment_name: {type:String, required:true},
     assignment_subject: {type:String, required:true},
     assignment_due: {type:String, required:true},
     private: { type:Boolean, required:true}
-        }
         ```
-
-3. Authenticate Teacher
-    - get teacher
     
 
-##Hosted On Heroku (WE'LL DEPLOY TOGETHER ON FRIDAY)
+### Updates:
+student accounts
