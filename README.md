@@ -4,7 +4,7 @@ This Directory allows teachers to Create an account, Login and manage assignment
 ### Tech Stack
 Server: Node,Express
 Database: MongoDB
-Tools: MongoDB
+Tools: Postman
 
 ## Names of all ENV Variables
     - MONGODB_URI
@@ -12,7 +12,7 @@ Tools: MongoDB
     - SALT
 
 ## Instructions on Installing & Running Locally
-git clone teacherDiectory_Api
+git clone https://github.com/ElleDavis/TeacherDirectory
 cd into yourr cloned teacherDiectory_Api
 
 install dependencies;
