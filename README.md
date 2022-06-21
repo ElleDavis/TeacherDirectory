@@ -1,10 +1,10 @@
 # TeacherDirectory
-This Directory allows teachers to Create an account, Loginand manage assignments. 
+This Directory allows teachers to Create an account, Login and manage assignments. 
 
 ### Tech Stack
-Server:
-Database:
-Tools:
+Server: Node,Express
+Database: MongoDB
+Tools: MongoDB
 
 ## Names of all ENV Variables
     - MONGODB_URI
@@ -31,16 +31,18 @@ install dependencies;
 
 1. Server: app.get("/") rreturns "Welcome to my API"
 2. Teacher Routes:
-    - Create teachers
-    - Read teachers
-    - Update teachers
-    - Delete teachers
+    - Create teachers: POST/http://localhost:3000/teacher
+    - Read teachers GET/http://localhost:3000/teacher
+    - Read teachers by ID GET/http://localhost:3000/teacher/Id#
+    - Update teachers  PUT/http://localhost:3000/teacher
+    - Delete teachers  DELETE/http://localhost:3000/teacher
 
 3. Assignments Routes:
-    - Create Assignments
-    - Read Assignments
-    - Update Assignments
-    - Delete Assignments
+    - Create Assignments: POST/http://localhost:3000/assignments
+    - Read Assignments GET/http://localhost:3000/assignments
+    - Read Assignments by ID GET/http://localhost:3000/assignments/Id#
+    - Update Assignments PUT/http://localhost:3000/assignments
+    - Delete Assignments DELETE/http://localhost:3000/assignments
 
 4. Authenticate Teacher
     - POST: Login teacher
@@ -66,6 +68,6 @@ install dependencies;
     
 
 ### Updates:
-student accounts
+Adding student accounts
 
 https://elle-teacherdirectory-api.herokuapp.com/
