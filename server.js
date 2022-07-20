@@ -10,6 +10,7 @@ const authRouter= require("./routes/authRouter")
 const Mongoconfig=require("./config/MongoConfig")
 const morgan =require("morgan")
 const helmet =require("helmet")
+const cors =require ("cors")
 require("dotenv").config() 
 
 

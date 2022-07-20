@@ -6,7 +6,7 @@ const userModel = require('../models/teacherSchema')
 const router = express.Router()
 
 
-//* User Login
+//* teacher Login
 router.post('/',[
     check("email", "Please provide a valid email").isEmail(),
     check("password", "Check your password!").notEmpty()
