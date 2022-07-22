@@ -1,6 +1,7 @@
 // ===========================Required (express,schema,router)
 const express = require("express")
 const teacherModel = require ("../models/teacherSchema")
+const assignmentModel=require("../models/assignmentSchema")
 const bcrypt =require("bcrypt")
 const jwt = require('jsonwebtoken')
 const {check, validationResult}=require("express-validator")

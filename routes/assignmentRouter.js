@@ -2,6 +2,7 @@
 // ===========================Required (express,schema,router)
 const express = require("express")
 const assignmentModel =require ("../models/assignmentSchema")
+const authMiddleware = require('../Middleware/authMiddleware')
 const router=express.Router()
 
 
@@ -13,7 +14,7 @@ const router=express.Router()
 // })
 
 //* GET assignment
-router.get('/', async (req, res) => {
+router.get('/',authMiddleware, async (req, res) => {
     try {
         const assignment = await assignmentModel.find()
         res.status(200).json(assignment)
@@ -22,8 +23,9 @@ router.get('/', async (req, res) => {
     }
  })
  //* GET assignment by id
-router.get('/:id', async (req, res) => {
+router.get('/:id', authMiddleware, async (req, res) => {
     const id = req.params.id
+    console.log(req.user)
     try {
         const assignment = await assignmentModel.findById(id)
         res.status(200).json(assignment)
@@ -32,8 +34,10 @@ router.get('/:id', async (req, res) => {
     }
  })
  //POST assignment
- router.post('/', async (req, res) => {
+ router.post('/',authMiddleware, async (req, res) => {
     const assignmentData = req.body 
+    assignmentData.teacher = req.teacher.id
+    console.log(assignmentData)
     try {
         const assignment = await assignmentModel.create(assignmentData)
         res.status(200).json(assignment)
@@ -43,7 +47,7 @@ router.get('/:id', async (req, res) => {
     }
  })
  //* UPDATE assignment BY ID
-router.put('/:id', async (req, res) => {
+router.put('/:id',authMiddleware, async (req, res) => {
     const id = req.params.id
     const newAssignmentData = req.body
      try {
@@ -55,8 +59,9 @@ router.put('/:id', async (req, res) => {
      }
 })
 //! DELETE A assignment
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',authMiddleware, async (req, res) => {
     const id = req.params.id
+    console.log("from Delete", req.teacher)
 
     try {
         const assignment = await assignmentModel.findByIdAndDelete(id)

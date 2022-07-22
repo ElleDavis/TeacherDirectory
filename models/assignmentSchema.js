@@ -3,10 +3,11 @@ const mongoose=require("mongoose")
 const assignmentSchema=mongoose.Schema({
     created_by: {
         type:String, 
-        required:true},
+        required:false},
 
     created_at: {
-        type: Date,
+        // type: Date,
+        type: String,
         default: Date.now()
         },
 
@@ -19,11 +20,11 @@ const assignmentSchema=mongoose.Schema({
         required:true},
 
     assignment_due: {
-        type:String, 
+        type:Date, 
         required:true},
 
     private: {
         type:Boolean, 
-        required:true}
+        required:false}
 })
 module.exports = mongoose.model("assignments", assignmentSchema)

@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const userModel = require('../models/teacherSchema')
 const router = express.Router()
+const jwt =require("jsonwebtoken")
 
 
 //* teacher Login
@@ -21,27 +22,30 @@ router.post('/',[
 
     try {
         // Find the user with the provided email
-        const user = await userModel.findOne({email: userData.email})
-        if (!user){
+        const teacher = await userModel.findOne({email: userData.email})
+        if (!teacher){
             return res.json('User not found!')
         }
 
         // Compare the plain text password to hashed password
-        const isMatch = await bcrypt.compare(userData.password, user.password)
+        const isMatch = await bcrypt.compare(userData.password, teacher.password)
         if (!isMatch){
             return res.json('Password is not a match!')
         }
-          //* create a new JWT Token
+         //* create a new JWT Token
 
-          const payload = {
-            id: user._id,
-            email: user.email
+         const payload = {
+            id: teacher._id,
+            email: teacher.email
+//d7283bd (updated authRouter,teacherRouter, assignmentrouterrr and schema)
         }
         // const SECRET_KEY='MY_SECRET_KEY'
         const TOKEN = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "2 hours"})
 
         res.status(201).json({
-            teacher: user,
+
+            teacher: teacher,
+//d7283bd (updated authRouter,teacherRouter, assignmentrouterrr and schema)
             token: TOKEN
         })
 
