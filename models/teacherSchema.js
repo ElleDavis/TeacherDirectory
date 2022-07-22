@@ -12,7 +12,7 @@ const teacherSchema=mongoose.Schema({
     birthday: {
         type:String,
         // default: Date.now(), 
-        required:true},
+        required:false},
 
     age:{ 
         type:Number},
