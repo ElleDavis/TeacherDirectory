@@ -11,13 +11,10 @@ const authRouter= require("./routes/authRouter")
 const Mongoconfig=require("./config/MongoConfig")
 const morgan =require("morgan")
 const helmet =require("helmet")
-<<<<<<< HEAD
 const cors =require ("cors")
 require("dotenv").config() 
 
-=======
-const cors=require("cors")
->>>>>>> ade33a9 (reverted to fb60d8c, login and registration working)
+
 
 //Middleware
 app.use(express.json())

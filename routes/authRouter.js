@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const userModel = require('../models/teacherSchema')
 const router = express.Router()
-const jwt =require("jsonwebtoken")
+
 
 
 //* teacher Login
